@@ -6,7 +6,9 @@
         <?php foreach ($this->items as $item) : ?>
             <div class="myfolio">
                 <div class="folio_title">
-                    <?php echo $item->title; ?>
+                    <a href="<?php echo JRoute::_('index.php?option=com_ folio&view=folio&id='.(int)$item->id); ?>">
+                        <?php echo $item->title; ?>
+                    </a>
                 </div>
                 <div class="folio_element">
                     <a href="<?php echo $item->url; ?>" target="_blank"><img src="<?php echo $item->image; ?>" width="150"></a>
