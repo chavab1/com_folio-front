@@ -1,6 +1,10 @@
 <?php
 
-    defined('_JEXEC') or die; ?>
+    defined('_JEXEC') or die;
+    $width="400";
+    $height="400";
+
+?>
     
     <div class="mypreview">
         <?php foreach ($this->items as $item) : ?>
@@ -11,7 +15,30 @@
                     </a>
                 </div>
                 <div class="folio_element">
-                    <a href="<?php echo $item->url; ?>" target="_blank"><img src="<?php echo $item->image; ?>" width="150"></a>
+                    <?php
+                      switch ($this->params->get('target')) {
+                          case 1:
+                                // open in a new window
+                                echo '<a href="'. $item->url .'" target="_blank" rel="nofollow">'. '<img src="'. $item->image .'" width="150"></a>';
+                              break;
+                          case 2:
+                                // open in a popup window
+                              $attribs = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width='.$this->escape($width).',height='.$this->escape($height).'';
+                              echo "<a href=\"$item->url\" onclick=\"window.open(this.href, 'targetWindow', '".$attribs."'); return false;\">".'<img src="'. $item->image .'" width="150"></a>';
+                              break;
+                          case 3:
+                                // open in a modal window
+                                JHtml::_('behavior.modal', 'a.modal'); ?>
+                                <a class="modal" href="<?php echo $item->url;?>" rel="{handler: 'iframe', size: {x:<?php echo $this->escape($width);?>, y:<?php echo $this->escape($height);?>}}"><img src="<?php echo $item->image; ?>"</a>
+                            <?php
+                              echo "Your favorite color is green!";
+                              break;
+                          default:
+                            // open in parent window
+                            echo '<a href="'.  $item->url . '" rel="nofollow">'.'<img src="'. $item->image .'" width="150"></a>';
+                            break;
+                        }
+                    ?>
                 </div>
                 <div class="folio_element">
                     <strong>
