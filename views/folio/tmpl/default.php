@@ -24,3 +24,16 @@
             </div>
         <?php endforeach; ?>
     </div>
+
+    <div class="folio_element_full">
+        <?php
+        $item->text = $item->description;
+        $item->introtext = $item->description;
+        $options = array();
+        if (class_exists('plgContentKomento'))
+        {
+            require_once JPATH_ROOT . '/components/com_komento/bootstrap.php';
+            echo Komento::commentify('com_folio', $item, $options);
+        }
+        ?>
+    </div>
