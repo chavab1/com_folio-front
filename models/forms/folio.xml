@@ -18,5 +18,6 @@
     <field name="phone" type="tel" id="phone" description="COM_FOLIO_FIELD_PHONE_DESC" filter="string" label="COM_FOLIO_FIELD_PHONE_LABEL" size="30" validate="tel" />
     <field name="url" type="text" description="COM_FOLIO_FIELD_URL_DESC" label="COM_FOLIO_FIELD_URL_LABEL" size="40" maxlength="255" />
     <field name="description" type="textarea" class="inputbox" rows="3" cols="30" label="JGLOBAL_DESCRIPTION" description="COM_FOLIO_FIELD_DESCRIPTION_DESC" />
+    <field name="captcha" type="captcha" label="COM_FOLIO_CAPTCHA_LABEL" description="COM_FOLIO_CAPTCHA_DESC" validate="captcha" namespace="contact" />    
   </fieldset>
 </form>

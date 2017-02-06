@@ -50,7 +50,9 @@
                 <div class="folio_element">
                     <strong>
                         <?php echo JText::_('COM_FOLIO_PHONE');?>
-                    </strong><?php echo $item->phone; ?>
+                    </strong>
+                    <!--Prepare content for plugin-->
+                    <?php echo JHTML::_('content.prepare', ' '.$item->phone); ?>
                 </div>
                 <div class="folio_element">
                     <?php echo $item->description; ?>
