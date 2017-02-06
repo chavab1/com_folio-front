@@ -3,6 +3,8 @@
     defined('_JEXEC') or die;
 
     $user = JFactory::getUser();
+    $listOrder = '';
+    $listDirn = '';
 
     //make sure user is logged in
     if($user->id == 0)
@@ -71,7 +73,7 @@
                         <?php echo JHtml::_('grid.sort', 'COM_FOLIO_HEADING_COMPANY', 'a.company', $listDirn, $listOrder); ?>
                     </th>
                     <th width="1%" class="nowrap center hidden-phone">
-                        <?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ ID', 'a.id', $listDirn, $listOrder); ?>
+                        <?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
                     </th>
                 </tr>
             </thead>
